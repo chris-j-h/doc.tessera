@@ -10,8 +10,8 @@ description: Configuring Tessera enclave
 
 To configure a [local enclave](../../Concepts/Enclave-types.md#local), in the transaction manager
 configuration file:
- 
-* Do not specify an enclave server type. 
+
+* Do not specify an enclave server type.
 * Specify the enclave keys.
 
 !!! example "Local enclave configuration"
@@ -28,18 +28,18 @@ configuration file:
     }
     ```
 
-## Remote enclave
+## Remote HTTP enclave
 
-To configure a [remote HTTP enclave](../../Concepts/Enclave-types.md#http-enclave), in the remote enclave
-configuration file: 
+To configure a [remote HTTP enclave](../../Concepts/Enclave-types.md#remote-http-enclave), in the remote HTTP enclave
+configuration file:
 
-* Specify an `ENCLAVE` server app type with REST as the communication type. 
+* Specify an `ENCLAVE` server app type with REST as the communication type.
 * Specify TLS settings as appropriate, with the transaction manager as a client of the enclave.
 
 In the transaction manager configuration file, specify the same enclave configuration so the transaction
-manager can find the remote enclave. 
+manager can find the remote HTTP enclave.
 
-!!! example "Remote enclave configuration file" 
+!!! example "Remote HTTP enclave configuration file"
     ```json
     {
      "serverConfigs": [{
@@ -71,8 +71,8 @@ manager can find the remote enclave.
     }],
     ```
 
-Specify the same keys as the transaction manager configuration. The remote enclaves can use all key types, including
-vaults. When using a vault with the enclave, include the corresponding JAR on the classpath. For example: 
+Specify the same keys as the transaction manager configuration. The remote HTTP enclaves can use all key types, including
+vaults. When using a vault with the enclave, include the corresponding JAR on the classpath. For example:
 
 * `/path/to/azure-key-vault-0.9-SNAPSHOT-all.jar`
 * `/path/to/hashicorp-key-vault-0.9-SNAPSHOT-all.jar`
