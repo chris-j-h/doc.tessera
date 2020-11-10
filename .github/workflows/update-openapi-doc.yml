@@ -37,7 +37,7 @@ jobs:
         run: chmod +x gradlew
       - name: Generate OpenAPI document
         working-directory: ${{ env.TESSERA_DIR }}
-        run: ./gradlew generateOpenApiDoc
+        run: ./gradlew -Dorg.gradle.jvmargs=-Xmx4096m generateOpenApiDoc
       - name: Copy OpenAPI document to ${{ env.DOC_DIR }}
         run: |
           cp ${{ env.TESSERA_DIR }}/${{ env.TESSERA_OPENAPI_PATH }} ${{ env.DOC_DIR }}/${{ env.DOC_OPENAPI_PATH }}
